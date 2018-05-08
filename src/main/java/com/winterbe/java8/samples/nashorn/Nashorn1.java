@@ -1,13 +1,15 @@
 package com.winterbe.java8.samples.nashorn;
 
-import com.winterbe.java8.samples.lambda.Person;
+import java.io.File;
+import java.io.FileReader;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
-import java.io.FileReader;
-import java.time.LocalDateTime;
-import java.util.Date;
+
+import com.winterbe.java8.samples.lambda.Person;
 
 /**
  * Calling javascript functions from java with nashorn.
@@ -17,6 +19,9 @@ import java.util.Date;
 public class Nashorn1 {
 
     public static void main(String[] args) throws Exception {
+    	System.out.println(System.getProperty("user.dir"));//user.dir指定了当前的路径 
+    	
+    	String path=System.getProperty("user.dir");
         ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
         engine.eval(new FileReader("res/nashorn1.js"));
 
